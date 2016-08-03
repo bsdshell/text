@@ -1,0 +1,32 @@
+# Go to your Gmail Account setting and enable POP and IMAP
+# run Mutt -v
+# Make sure USE_POP  USE_IMAP  USE_SMTP are enabled
+# e.g. +USE_POP  +USE_IMAP  +USE_SMTP are good  
+# 
+# If '-USE_POP  -USE_IMAP  -USE_SMTP' is shown, then you need to enable it  
+# Mutt 1.4 is disabled by default. If you install Mutt on Mac using Brew[brew install mutt], then
+# Mutt 1.6 is installed and POP/IMAP are enabled by default
+
+# mutt -v  (mutt 1.6 on Mac OSX)
+#+HOMESPOOL  -USE_SETGID  +USE_DOTLOCK  -DL_STANDALONE  +USE_FCNTL  -USE_FLOCK   
+#+USE_POP  +USE_IMAP  +USE_SMTP  
+#+USE_SSL_OPENSSL  -USE_SSL_GNUTLS  +USE_SASL  +USE_GSS  +HAVE_GETADDRINFO  
+#+HAVE_REGCOMP  -USE_GNU_REGEX  
+#+HAVE_COLOR  +HAVE_START_COLOR  +HAVE_TYPEAHEAD  +HAVE_BKGDSET  
+#+HAVE_CURS_SET  +HAVE_META  +HAVE_RESIZETERM  
+#+CRYPT_BACKEND_CLASSIC_PGP  +CRYPT_BACKEND_CLASSIC_SMIME  -CRYPT_BACKEND_GPGME  
+
+set imap_user           = 'yourname@gmail.com'
+set imap_pass           = 'yourname'
+set smtp_url            = 'smtp://yourname@smtp.gmail.com:587/'
+set smtp_pass           = 'password'
+set from                = 'yourname@gmail.com'
+set realname            = 'name'
+set folder              = 'imaps://imap.gmail.com:993'
+set spoolfile           = '+INBOX'
+set postponed           = '+[Gmail]/Drafts'
+set header_cache        = ~/.mutt/cache/headers
+set message_cachedir    = ~/.mutt/cache/bodies
+set certificate_file    = ~/.mutt/certificates
+set move                = no
+set smtp_authenticators = ‘gssapi:login’
